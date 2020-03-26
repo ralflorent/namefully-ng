@@ -5,15 +5,34 @@
  * @author Ralph Florent <ralflornt@gmail.com>
  */
 import { Pipe, PipeTransform } from '@angular/core';
+import { Namefully, Config, Name, Nama } from 'namefully'
 
-import { Namefully, Config } from 'namefully'
-
+/**
+ * Handles a person name in the Latin alphabet from an Angular-pipe perspective.
+ *
+ * @see {@link https://angular.io/guide/pipes|Pipes} by Angular for further info
+ * on how to use pipes.
+ *
+ * @usageNotes
+ *     raw | namefully : options : method : args
+ *
+ * @example
+ * Let's say we want to compress the name `John Joe Smith` to `John J. Smith`:
+ *    {{ 'John Joe Smith' | namefully : {'orderedBy': 'firstname'} : 'compress' : [10, 'middlename'] }}
+ */
 @Pipe({
     name: 'namefully'
 })
 export class NamefullyPipe implements PipeTransform {
+    /**
+     * Formats the name as specified
+     * @param raw data element of different shapes
+     * @param {Partial<Config>} [options] parameters to customize how to render the name
+     * @param {string} [method] name of a specific method to call to display a name part
+     * @param {any[]} [args] a list of arguments for a given method
+     */
     transform(
-        raw: string,
+        raw: string | string[] | Name[] | Nama,
         options?: Partial<Config>,
         method?: 'px' | 'sx' | 'fn' | 'ln' | 'mn' | 'full' | 'inits',
         args?: any[]

@@ -9,6 +9,13 @@ import { CommonModule } from '@angular/common';
 import { NamefullyComponent } from './namefully.component';
 import { NamefullyPipe } from './namefully.pipe';
 
+/**
+ * Exposes a widget feature module comprising two Angular-based elements:
+ *  - a component: NamefullyComponent
+ *  - a pipe: NamefullyPipe
+ *
+ * See the doc comment to see how to use each one of them.
+ */
 @NgModule({
     imports: [CommonModule],
     declarations: [NamefullyComponent, NamefullyPipe],
