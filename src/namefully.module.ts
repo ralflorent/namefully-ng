@@ -7,10 +7,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NamefullyComponent } from './namefully.component';
+import { NamefullyPipe } from './namefully.pipe';
 
 @NgModule({
     imports: [CommonModule],
-    declarations: [NamefullyComponent],
-    exports: [NamefullyComponent]
+    declarations: [NamefullyComponent, NamefullyPipe],
+    exports: [NamefullyComponent, NamefullyPipe]
 })
 export class NamefullyModule {}
