@@ -12,11 +12,24 @@ import { NamefullyModule } from '../src/index';
 @Component({
     selector: 'app-root',
     template: `
-        <h1> Welcome to the Demo </h1>
-        <ng-namefully raw='John Smith'> </ng-namefully>
+        <h1> Welcome to Namefully </h1>
+        <a>
+            <ng-namefully
+                [raw]="name"
+                [options]="options"
+                [method]="method"
+                [args]="args"
+                >
+            </ng-namefully>
+        </a>
+        <p>Hello, {{ name | namefully : options : 'fn' }}!</p>
     `
 })
 class AppComponent implements OnInit {
+    name = 'Mr Smith John Joe PhD'
+    options = { orderedBy: 'lastname' }
+    method = 'shorten'
+    args = ['firstname']
     ngOnInit(): void {}
 }
 
