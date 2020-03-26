@@ -1,0 +1,30 @@
+{
+  "name": "@namefully/ng",
+  "version": "1.0.0",
+  "description": "Angular-based component for handling person names in the Latin alphabet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ralflorent/namefully-ng.git"
+  },
+  "keywords": [
+    "givenname",
+    "firstname",
+    "fullname",
+    "namefully",
+    "angular"
+  ],
+  "author": {
+      "name": "Ralph Florent",
+      "email": "ralflornt@gmail.com",
+      "url": "https://ralflorent.com"
+  },
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ralflorent/namefully-ng/issues"
+  },
+  "homepage": "https://github.com/ralflorent/namefully-ng#readme"
+}
