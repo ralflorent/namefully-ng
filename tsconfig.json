@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "baseUrl": "./",
-        "module": "commonjs",
-        "target": "esnext",
+        "module": "esnext",
+        "target": "es2015",
         "moduleResolution": "node",
         "declaration": true,
         "emitDecoratorMetadata": true,
@@ -13,7 +13,10 @@
         "preserveConstEnums": true,
         "outDir": "dist/lib",
         "sourceMap": true,
-        "lib": ["dom", "es2015", "es2016", "es2017", "es2018"],
+        "lib": ["dom", "es2018"],
+        "typeRoots": [
+            "node_modules/@types"
+        ],
     },
     "include": [
         "src/**/*",

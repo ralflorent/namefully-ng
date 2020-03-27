@@ -3,8 +3,8 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-      "namefully": {
-        "root": "",
+      "demo-app": {
+        "root": ".",
         "sourceRoot": "demo",
         "projectType": "application",
         "schematics": {
@@ -16,7 +16,7 @@
           "build": {
             "builder": "@angular-devkit/build-angular:browser",
             "options": {
-              "outputPath": "dist/lib",
+              "outputPath": "dist/demo-app",
               "index": "demo/index.html",
               "main": "demo/index.ts",
               "tsConfig": "demo/tsconfig.json",
@@ -26,7 +26,7 @@
           "serve": {
             "builder": "@angular-devkit/build-angular:dev-server",
             "options": {
-              "browserTarget": "namefully:build"
+              "browserTarget": "demo-app:build"
             }
           },
           "lint": {
@@ -39,7 +39,32 @@
             }
           }
         }
+      },
+      "@namefully/ng": {
+        "projectType": "library",
+        "root": ".",
+        "sourceRoot": "src",
+        "architect": {
+          "build": {
+            "builder": "@angular-devkit/build-ng-packagr:build",
+            "options": {
+              "tsConfig": "tsconfig.lib.json",
+              "project": "ng-package.json"
+            }
+          },
+          "lint": {
+            "builder": "@angular-devkit/build-angular:tslint",
+            "options": {
+              "tsConfig": [
+                "tsconfig.lib.json"
+              ],
+              "exclude": [
+                "**/node_modules/**"
+              ]
+            }
+          }
+        }
       }
     },
-    "defaultProject": "namefully"
+    "defaultProject": "demo-app"
 }

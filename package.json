@@ -4,7 +4,9 @@
   "description": "Angular-based component for handling person names in the Latin alphabet",
   "main": "index.js",
   "scripts": {
-    "start": "ng serve --open",
+    "start": "ng serve demo-app --open",
+    "build:lib": "ng build @namefully/ng",
+    "lint:lib": "ng lint @namefully/ng",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
@@ -28,11 +30,10 @@
     "url": "https://github.com/ralflorent/namefully-ng/issues"
   },
   "homepage": "https://github.com/ralflorent/namefully-ng#readme",
-  "dependencies": {
-    "namefully": "^1.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.0",
+    "@angular-devkit/build-ng-packagr": "^0.901.0",
     "@angular/cli": "^9.1.0",
     "@angular/common": "^9.1.0",
     "@angular/compiler": "^9.1.0",
@@ -40,9 +41,19 @@
     "@angular/core": "^9.1.0",
     "@angular/platform-browser": "^9.1.0",
     "@angular/platform-browser-dynamic": "^9.1.0",
+    "codelyzer": "^5.2.2",
+    "namefully": "^1.0.6",
+    "ng-packagr": "^9.1.0",
     "rxjs": "^6.5.4",
+    "tsickle": "^0.38.1",
     "tslib": "^1.11.1",
+    "tslint": "^6.1.0",
     "typescript": "^3.8.3",
     "zone.js": "^0.10.3"
+  },
+  "peerDependencies": {
+      "@angular/core": "^6.1.0",
+      "@angular/common": "^6.1.0",
+      "namefully": "1.0.6"
   }
 }
