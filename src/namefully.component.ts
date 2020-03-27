@@ -18,7 +18,7 @@ import { Namefully, Name, Nama, Config } from 'namefully';
  * @param {any[]} [args] a list of arguments for a given method
  *
  * @usageNotes
- *```html
+ * ```html
  *     <ng-namefully
  *          [raw]="..."
  *          [options]="..."
@@ -62,10 +62,8 @@ import { Namefully, Name, Nama, Config } from 'namefully';
  *    method = 'shorten'
  *    args = ['firstname']
  *    ngOnInit(): void {}
- *}
+ * }
  * ```
- *
- *
  */
 @Component({
     selector: 'ng-namefully',
