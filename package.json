@@ -7,7 +7,7 @@
     "start": "ng serve demo-app --open",
     "build:lib": "ng build @namefully/ng",
     "lint:lib": "ng lint @namefully/ng",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test:lib": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",

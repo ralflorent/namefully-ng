@@ -5,7 +5,6 @@
  * @author Ralph Florent <ralflornt@gmail.com>
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NamefullyComponent } from './namefully.component';
 import { NamefullyPipe } from './namefully.pipe';
 
@@ -17,7 +16,6 @@ import { NamefullyPipe } from './namefully.pipe';
  * See the doc comment to see how to use each one of them.
  */
 @NgModule({
-    imports: [CommonModule],
     declarations: [NamefullyComponent, NamefullyPipe],
     exports: [NamefullyComponent, NamefullyPipe]
 })
