@@ -2,11 +2,13 @@
 
 [![npm version][version-img]][version-url]
 [![CircleCI][circleci-img]][circleci-url]
-[![GPL-3.0 License][license-img]][license-url]
+[![MIT License][license-img]][license-url]
 
 ## Description
 
 [namefully][namefully-url]'s [Angular](https://angular.io/) version.
+
+[Try it live](https://stackblitz.com/edit/namefully-ng)
 
 ## Installation
 
@@ -84,7 +86,7 @@ Developed by [Ralph Florent](https://github.com/ralflorent).
 
 ## License
 
-The underlying content of this project is licensed under [GPL-3.0](LICENSE).
+The underlying content of this project is licensed under [MIT](LICENSE).
 
 [namefully-url]: https://github.com/ralflorent/namefully
 
@@ -93,4 +95,4 @@ The underlying content of this project is licensed under [GPL-3.0](LICENSE).
 [circleci-img]: https://circleci.com/gh/ralflorent/namefully-ng.svg?style=shield
 [circleci-url]: https://circleci.com/gh/ralflorent/namefully-ng
 [license-img]: https://img.shields.io/npm/l/@namefully/ng
-[license-url]: http://www.gnu.org/licenses/gpl-3.0.en.html
+[license-url]: https://opensource.org/licenses/MIT

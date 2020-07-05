@@ -1,7 +1,10 @@
 {
   "name": "@namefully/ng",
-  "version": "1.0.0",
-  "description": "Angular-based component for handling person names in the Latin alphabet",
+  "version": "1.1.0",
+  "description": "Angular-based component for handling person names",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "scripts": {
     "start": "ng serve demo-app --open",
@@ -25,11 +28,11 @@
     "email": "ralflornt@gmail.com",
     "url": "https://ralflorent.com"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ralflorent/namefully-ng/issues"
   },
-  "homepage": "https://github.com/ralflorent/namefully-ng#readme",
+  "homepage": "https://namefully.netlify.app",
   "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.0",
@@ -42,7 +45,7 @@
     "@angular/platform-browser": "^9.1.0",
     "@angular/platform-browser-dynamic": "^9.1.0",
     "codelyzer": "^5.2.2",
-    "namefully": "^1.0.6",
+    "namefully": "^1.1.0",
     "ng-packagr": "^9.1.0",
     "rxjs": "^6.5.4",
     "tsickle": "^0.38.1",
@@ -52,8 +55,8 @@
     "zone.js": "^0.10.3"
   },
   "peerDependencies": {
-      "@angular/core": "^6.1.0",
-      "@angular/common": "^6.1.0",
-      "namefully": "1.0.6"
+    "@angular/core": "^6.1.0",
+    "@angular/common": "^6.1.0",
+    "namefully": "^1.0.6"
   }
 }

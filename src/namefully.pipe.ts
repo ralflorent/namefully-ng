@@ -5,7 +5,7 @@
  * @author Ralph Florent <ralflornt@gmail.com>
  */
 import { Pipe, PipeTransform } from '@angular/core';
-import { Namefully, Config, Name, Nama } from 'namefully'
+import { Namefully, Config, Name, Nama, Fullname } from 'namefully';
 
 /**
  * Handles a person name in the Latin alphabet from an Angular-pipe perspective.
@@ -32,13 +32,13 @@ export class NamefullyPipe implements PipeTransform {
      * @param {any[]} [args] a list of arguments for a given method
      */
     transform(
-        raw: string | string[] | Name[] | Nama,
+        raw: string | string[] | Name[] | Nama | Fullname,
         options?: Partial<Config>,
-        method?: 'px' | 'sx' | 'fn' | 'ln' | 'mn' | 'full' | 'inits',
+        method?: keyof Namefully,
         args?: any[]
     ): string {
         const name = new Namefully(raw, options);
-        return this.getContent(name, name[method || 'full'], args);
+        return this.getContent(name, name[method || 'birth'], args);
     }
 
     private getContent(context: any, fn: (params?: any) => any, vargs: any[]): string {
