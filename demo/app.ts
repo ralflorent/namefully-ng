@@ -6,35 +6,48 @@
  */
 import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Namefully } from 'namefully';
 
-import { NamefullyModule } from '../src/index';
+import { NamefullyModule, NamefullyService } from '../src/public-api';
 
 @Component({
     selector: 'app-root',
     template: `
         <h1> Welcome to Namefully </h1>
-        <a>
+        <p>
+            Using component:
             <ng-namefully
                 [raw]="name"
-                [options]="options"
-                [method]="method"
-                [args]="args"
-                >
-            </ng-namefully>
-        </a>
-        <p>Hello, {{ name | namefully : options : 'fn' }}!</p>
+                [options]="{ orderedBy: 'ln' }"
+                [method]="'shorten'"
+                >!
+            </ng-namefully>!
+        </p>
+        <p>Using pipe: Hello,
+            {{ name | namefully : { orderedBy:'ln' } : 'shorten' }}!
+        </p>
+        <p>Using service: Hello, {{ superName.shorten() }}!</p>
     `
 })
 class AppComponent implements OnInit {
-    name = 'Mr Smith John Joe PhD'
-    options = { orderedBy: 'lastname' }
-    method = 'shorten'
-    args = ['firstname']
-    ngOnInit(): void {}
+    name = 'Mr Smith John Joe PhD';
+    superName: Namefully;
+
+    constructor(private service: NamefullyService) {}
+
+    ngOnInit(): void {
+        this.superName = this.service.build(
+            this.name,
+            /* override forRoot config here */
+        );
+    }
 }
 
 @NgModule({
-    imports: [BrowserModule, NamefullyModule],
+    imports: [
+        BrowserModule,
+        NamefullyModule.forRoot({ orderedBy: 'lastname' })
+    ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
