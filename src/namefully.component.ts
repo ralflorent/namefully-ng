@@ -5,27 +5,23 @@
  * @author Ralph Florent <ralflornt@gmail.com>
  */
 import { Component, Input, OnInit } from '@angular/core';
-import { Namefully, Name, Nama, Config } from 'namefully';
+import { Namefully, Name, Nama, Fullname, Config } from 'namefully';
+import { executeInnerMethod } from './namefully-utils';
 
 /**
  * Represents an Angular-based component that wraps up the basic functionality
  * of namefully. Remember, if not satisfied, one can always use some of the core
  * elements exported from `namefully` to fully enjoy the benefits offered by it.
  *
- * @param raw data element of different shapes
- * @param {Partial<Config>} [options] parameters to customize how to render the name
- * @param {string} [method] name of a specific method to call to display a name part
- * @param {any[]} [args] a list of arguments for a given method
- *
  * @usageNotes
  * ```html
- *     <ng-namefully
+ *     <ngx-namefully
  *          [raw]="..."
  *          [options]="..."
  *          [method]="..."
  *          [args]="..."
  *          >
- *     </ng-namefully>
+ *     </ngx-namefully>
  * ```
  *
  * @example
@@ -36,7 +32,7 @@ import { Namefully, Name, Nama, Config } from 'namefully';
  * import { NamefullyModule } from '@namefully/ng'
  *
  * @NgModule({
- *   imports: [BrowserModule, NamefullyModule],
+ *   imports: [BrowserModule, NamefullyModule.forRoot(...)],
  *   declarations: [AppComponent],
  *   bootstrap: [AppComponent]
  * })
@@ -45,13 +41,13 @@ import { Namefully, Name, Nama, Config } from 'namefully';
  *
  * // in the html template:
  * ```html
- *     <ng-namefully
+ *     <ngx-namefully
  *          [raw]="name"
  *          [options]="options"
  *          [method]="method"
  *          [args]="args"
  *          >
- *     </ng-namefully>
+ *     </ngx-namefully>
  * ```
  *
  * // in the AppComponent.ts
@@ -66,11 +62,11 @@ import { Namefully, Name, Nama, Config } from 'namefully';
  * ```
  */
 @Component({
-    selector: 'ng-namefully',
+    selector: 'ngx-namefully',
     template: '{{content}}'
 })
 export class NamefullyComponent implements OnInit {
-    @Input() raw: string | string[] | Name[] | Nama;
+    @Input() raw: string | string[] | Name[] | Nama | Fullname ;
     @Input() options?: Partial<Config>;
     @Input() method?: keyof Namefully;
     @Input() args?: any[];
@@ -79,11 +75,10 @@ export class NamefullyComponent implements OnInit {
 
     ngOnInit(): void {
         const name = new Namefully(this.raw, this.options);
-        this.content = this.getContent(name, name[this.method || 'full'], this.args);
-    }
-
-    private getContent(context: any, fn: (params?: any) => any, vargs: any[]): string {
-        const content = fn.apply(context, vargs);
-        return Array.isArray(content) ? content.join(' ') : content;
+        this.content = executeInnerMethod(
+            name,
+            name[this.method || 'birth'],
+            this.args
+        );
     }
 }
