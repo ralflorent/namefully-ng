@@ -4,6 +4,14 @@ This file contains the documentation on the notable changes and bug fixes, and
 is formatted following this [standard](https://keepachangelog.com/en/1.0.0/).
 This project also adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.0] - 2020-07-10
+
+- Make `namefully` available as:
+  - Component: `<ngx-namefully ...></ngx-namefully>`
+  - Service: `NamefullyService`
+  - Directive: `ngxNamefully`
+  - Pipe: `| namefully`
+
 ## [1.1.0] - 2020-07-05
 
 - Switch to MIT License
@@ -15,5 +23,6 @@ This project also adheres to [Semantic Versioning](https://semver.org/).
 
 Initial version
 
-[1.1.1]: https://github.com/ralflorent/namefully-ng/compare/v1.0.0...v1.1.0
+[1.2.0]: https://github.com/ralflorent/namefully-ng/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/ralflorent/namefully-ng/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ralflorent/namefully-ng/releases/tag/v1.0.0
