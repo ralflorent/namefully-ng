@@ -15,18 +15,26 @@ import { NamefullyModule, NamefullyService } from '../src/public-api';
     template: `
         <h1> Welcome to Namefully </h1>
         <p>
-            Using component:
-            <ng-namefully
+            Using component: Hello,
+            <ngx-namefully
                 [raw]="name"
                 [options]="{ orderedBy: 'ln' }"
                 [method]="'shorten'"
                 >!
-            </ng-namefully>!
+            </ngx-namefully>!
         </p>
         <p>Using pipe: Hello,
             {{ name | namefully : { orderedBy:'ln' } : 'shorten' }}!
         </p>
         <p>Using service: Hello, {{ superName.shorten() }}!</p>
+        <p>Using directive: Hello,
+            <span
+                [ngxNamefully]="name"
+                [nfOptions]="{ orderedBy: 'ln' }"
+                nfMethod="shorten"
+            >
+            </span>!
+        </p>
     `
 })
 class AppComponent implements OnInit {
