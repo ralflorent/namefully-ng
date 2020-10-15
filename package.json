@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/ralflorent/namefully-ng/issues"
   },
-  "homepage": "https://namefully.netlify.app",
+  "homepage": "https://namefully.dev",
   "dependencies": {
     "namefully": "^1.1.0"
   },

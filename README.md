@@ -7,8 +7,7 @@
 ## Description
 
 [namefully][namefully-url]'s [Angular](https://angular.io/) version.
-
-[Try it live](https://stackblitz.com/edit/namefully-ng)
+[Try it live](https://stackblitz.com/edit/namefully-ng).
 
 ## Installation
 
@@ -30,7 +29,8 @@ npm i @namefully/ng
 import { Component, NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { NamefullyModule } from '@namefully/ng';
+import { NamefullyModule, NamefullyService } from '@namefully/ng';
+import { Namefully } from 'namefully';
 
 @Component({
     selector: 'app-root',
