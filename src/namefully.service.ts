@@ -1,12 +1,6 @@
-/**
- * Namefully service
- *
- * Created on July 09, 2020
- * @author Ralph Florent <ralflornt@gmail.com>
- */
-import { Injectable, Inject } from '@angular/core';
-import { Namefully, Config, Name, Nama, Fullname } from 'namefully';
-import { ConfigToken, CONFIG_TOKEN } from './namefully-config';
+import { Injectable, Inject } from '@angular/core'
+import { Namefully, Config, Name, JsonName, Parser } from 'namefully'
+import { ConfigToken, CONFIG_TOKEN } from './namefully-config'
 
 /**
  * Inject this service into your Angular component to handle person names
@@ -49,24 +43,18 @@ export class NamefullyService {
     /**
      * Holds a json-like copy of the preset configuration injected by Angular
      */
-    private readonly config: Config;
+    private readonly config: Config
 
-    constructor(@Inject(CONFIG_TOKEN) configToken: ConfigToken) {
-        this.config = {
-            ...configToken.default,
-            ...configToken.custom,
-        };
+    constructor(@Inject(CONFIG_TOKEN) config: ConfigToken) {
+        this.config = !!config.custom ? Config.merge(config.custom) : config.default
     }
 
     /**
-     * Builds `Namefully`
+     * Constructs `Namefully`
      * @param raw data to construct the name parts of a full name
-     * @param inlineConfig inline config to override preset forRoot(config)
+     * @param options fallback config to override preset forRoot(config)
      */
-    build(
-        raw: string | string[] | Name[] | Nama | Fullname,
-        inlineConfig?: Partial<Config>
-    ): Namefully {
-        return new Namefully(raw, inlineConfig || this.config);
+    build(raw: string | string[] | Name[] | JsonName | Parser, options?: Partial<Config>): Namefully {
+        return new Namefully(raw, options || this.config)
     }
 }

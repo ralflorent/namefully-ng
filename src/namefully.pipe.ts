@@ -1,12 +1,6 @@
-/**
- * Namefully pipe
- *
- * Created on March 26, 2020
- * @author Ralph Florent <ralflornt@gmail.com>
- */
-import { Pipe, PipeTransform } from '@angular/core';
-import { Namefully, Config, Name, Nama, Fullname } from 'namefully';
-import { executeInnerMethod } from './namefully-utils';
+import { Pipe, PipeTransform } from '@angular/core'
+import { Namefully, Config, Name, JsonName, Parser } from 'namefully'
+import { executeInnerMethod, MethodOf } from './namefully-utils'
 
 /**
  * Use Angular pipe to transform (handle) person names
@@ -19,7 +13,7 @@ import { executeInnerMethod } from './namefully-utils';
  *
  * @example
  * Let's say we want to compress the name `John Joe Smith` to `John J. Smith`:
- *    {{ 'John Joe Smith' | namefully : {'orderedBy': 'fn'} : 'zip' : ['mn'] }}
+ *    {{ 'John Joe Smith' | namefully : null : 'zip' : ['middleName'] }}
  */
 @Pipe({ name: 'namefully' })
 export class NamefullyPipe implements PipeTransform {
@@ -27,12 +21,12 @@ export class NamefullyPipe implements PipeTransform {
      * Formats the name as specified
      */
     transform(
-        raw: string | string[] | Name[] | Nama | Fullname,
+        raw: string | string[] | Name[] | JsonName | Parser,
         options?: Partial<Config>,
-        method?: keyof Namefully,
-        args?: any[]
+        method?: MethodOf<Namefully>,
+        args?: any[],
     ): string {
-        const name = new Namefully(raw, options);
-        return executeInnerMethod(name, name[method || 'birth'], args);
+        const name = new Namefully(raw, options)
+        return executeInnerMethod(name, name[method ?? 'birthName'], args)
     }
 }

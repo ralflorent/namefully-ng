@@ -3,5 +3,6 @@
     "dest": "./dist/@namefully-ng",
     "lib": {
         "entryFile": "src/public-api.ts"
-    }
+    },
+    "whitelistedNonPeerDependencies": ["namefully"]
 }

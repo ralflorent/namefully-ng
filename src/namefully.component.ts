@@ -1,12 +1,7 @@
-/**
- * Namefully component
- *
- * Created on March 26, 2020
- * @author Ralph Florent <ralflornt@gmail.com>
- */
-import { Component, Input, OnInit } from '@angular/core';
-import { Namefully, Name, Nama, Fullname, Config } from 'namefully';
-import { executeInnerMethod } from './namefully-utils';
+import { Component, Input, OnInit } from '@angular/core'
+import { Namefully, Name, JsonName, Parser, Config } from 'namefully'
+
+import { executeInnerMethod, MethodOf } from './namefully-utils'
 
 /**
  * Represents an Angular-based component that wraps up the basic functionality
@@ -52,33 +47,28 @@ import { executeInnerMethod } from './namefully-utils';
  *
  * // in the AppComponent.ts
  * ```ts
- * class AppComponent implements OnInit {
+ * class AppComponent {
  *    name = 'Mr Smith John Joe PhD'
- *    options = { orderedBy: 'lastname' }
+ *    options = { orderedBy: 'lastName' }
  *    method = 'shorten'
- *    args = ['firstname']
- *    ngOnInit(): void {}
+ *    args = []
  * }
  * ```
  */
 @Component({
     selector: 'ngx-namefully',
-    template: '{{content}}'
+    template: '{{content}}',
 })
 export class NamefullyComponent implements OnInit {
-    @Input() raw: string | string[] | Name[] | Nama | Fullname ;
-    @Input() options?: Partial<Config>;
-    @Input() method?: keyof Namefully;
-    @Input() args?: any[];
+    @Input() raw: string | string[] | Name[] | JsonName | Parser
+    @Input() options?: Partial<Config>
+    @Input() method?: MethodOf<Namefully>
+    @Input() args?: any[]
 
-    content: string;
+    content: string
 
     ngOnInit(): void {
-        const name = new Namefully(this.raw, this.options);
-        this.content = executeInnerMethod(
-            name,
-            name[this.method || 'birth'],
-            this.args
-        );
+        const name = new Namefully(this.raw, this.options)
+        this.content = executeInnerMethod(name, name[this.method || 'birthName'], this.args)
     }
 }

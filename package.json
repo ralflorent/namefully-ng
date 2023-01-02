@@ -1,63 +1,56 @@
 {
-  "name": "@namefully/ng",
-  "version": "1.2.0",
-  "description": "namefully for Angular",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "index.js",
-  "scripts": {
-    "start": "ng serve demo-app --open",
-    "build:lib": "ng build @namefully/ng",
-    "lint:lib": "ng lint @namefully/ng",
-    "test:lib": "echo \"Error: no test specified\" && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ralflorent/namefully-ng.git"
-  },
-  "keywords": [
-    "givenname",
-    "firstname",
-    "fullname",
-    "namefully",
-    "angular"
-  ],
-  "author": {
-    "name": "Ralph Florent",
-    "email": "ralflornt@gmail.com",
-    "url": "https://ralflorent.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ralflorent/namefully-ng/issues"
-  },
-  "homepage": "https://namefully.dev",
-  "dependencies": {
-    "namefully": "^1.1.0"
-  },
-  "devDependencies": {
-    "@angular-devkit/build-angular": "^0.901.0",
-    "@angular-devkit/build-ng-packagr": "^0.901.0",
-    "@angular/cli": "^9.1.0",
-    "@angular/common": "^9.1.0",
-    "@angular/compiler": "^9.1.0",
-    "@angular/compiler-cli": "^9.1.0",
-    "@angular/core": "^9.1.0",
-    "@angular/platform-browser": "^9.1.0",
-    "@angular/platform-browser-dynamic": "^9.1.0",
-    "codelyzer": "^5.2.2",
-    "ng-packagr": "^9.1.0",
-    "rxjs": "^6.5.4",
-    "tsickle": "^0.38.1",
-    "tslib": "^1.11.1",
-    "tslint": "^6.1.0",
-    "typescript": "^3.8.3",
-    "zone.js": "^0.10.3"
-  },
-  "peerDependencies": {
-    "@angular/core": "^6.1.0",
-    "@angular/common": "^6.1.0",
-    "namefully": "^1.0.6"
-  }
+    "name": "@namefully/ng",
+    "version": "1.2.1",
+    "description": "namefully for Angular",
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "index.js",
+    "scripts": {
+        "start": "ng serve demo-app --open",
+        "build:lib": "ng build @namefully/ng",
+        "lint:lib": "ng lint @namefully/ng",
+        "test:lib": "echo \"NOTE: no test specified\" && exit 0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ralflorent/namefully-ng.git"
+    },
+    "keywords": [
+        "format",
+        "fullname",
+        "namefully",
+        "angular"
+    ],
+    "author": {
+        "name": "Ralph Florent",
+        "email": "ralflornt@gmail.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ralflorent/namefully-ng/issues"
+    },
+    "homepage": "https://namefully.netlify.com",
+    "dependencies": {
+        "namefully": "^1.2.0"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "^0.901.0",
+        "@angular-devkit/build-ng-packagr": "^0.901.0",
+        "@angular/cli": "^9.1.0",
+        "@angular/common": "^9.1.0",
+        "@angular/compiler": "^9.1.0",
+        "@angular/compiler-cli": "^9.1.0",
+        "@angular/core": "^9.1.0",
+        "@angular/platform-browser": "^9.1.0",
+        "@angular/platform-browser-dynamic": "^9.1.0",
+        "codelyzer": "^5.2.2",
+        "ng-packagr": "^9.1.0",
+        "rxjs": "^6.5.4",
+        "tsickle": "^0.38.1",
+        "tslib": "^1.11.1",
+        "tslint": "^6.1.0",
+        "typescript": "^3.8.3",
+        "zone.js": "^0.10.3"
+    }
 }

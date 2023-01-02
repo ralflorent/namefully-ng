@@ -1,12 +1,7 @@
-/**
- * Namefully Directive
- *
- * Created on July 10, 2020
- * @author Ralph Florent <ralflornt@gmail.com>
- */
-import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
-import { Namefully, Name, Nama, Fullname, Config } from 'namefully';
-import { executeInnerMethod } from './namefully-utils';
+import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core'
+import { Namefully, Name, JsonName, Parser, Config } from 'namefully'
+
+import { executeInnerMethod, MethodOf } from './namefully-utils'
 
 /**
  * Represents an Angular-based attribute directive that wraps up namefully's
@@ -50,35 +45,29 @@ import { executeInnerMethod } from './namefully-utils';
  *
  * // in the AppComponent.ts
  * ```ts
- * class AppComponent implements OnInit {
+ * class AppComponent {
  *    name = 'Mr Smith John Joe PhD'
  *    options = { orderedBy: 'lastname' }
  *    method = 'shorten'
- *    args = ['firstname']
- *    ngOnInit(): void {}
+ *    args = []
  * }
  * ```
  * @see https://angular.io/guide/attribute-directives
  */
-@Directive({ selector: '[ngxNamefully]'})
+@Directive({ selector: '[ngxNamefully]' })
 export class NamefullyDirective implements AfterViewInit {
-
-    @Input('ngxNamefully') raw: string | string[] | Name[] | Nama | Fullname;
+    @Input('ngxNamefully') raw: string | string[] | Name[] | JsonName | Parser
     // tslint:disable-next-line:no-input-rename
-    @Input('nfOptions') options?: Partial<Config>;
+    @Input('nfOptions') options?: Partial<Config>
     // tslint:disable-next-line:no-input-rename
-    @Input('nfMethod') method?: keyof Namefully;
+    @Input('nfMethod') method?: MethodOf<Namefully>
     // tslint:disable-next-line:no-input-rename
-    @Input('nfArgs') args?: any[];
+    @Input('nfArgs') args?: any[]
 
     constructor(private elRef: ElementRef<HTMLElement>) {}
 
     ngAfterViewInit() {
-        const name = new Namefully(this.raw, this.options);
-        this.elRef.nativeElement.innerHTML = executeInnerMethod(
-            name,
-            name[this.method || 'birth'],
-            this.args
-        );
+        const name = new Namefully(this.raw, this.options)
+        this.elRef.nativeElement.innerHTML = executeInnerMethod(name, name[this.method ?? 'birthName'], this.args)
     }
 }
